@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # temp is the temperature used in the label-weighted contrastive loss
     seed_list = [5, 10, 15, 20, 25]
     # we take 5 runs where seed are set to 5, 10, 15, 20, 25
-    model_list = ['dense_s']
+    model_list = ['LDF_AWATT']
     # you can choose one or multiple methods at one time
     # code:             corresponding model:
     #  None             the original AWATT model

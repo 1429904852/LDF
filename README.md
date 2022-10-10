@@ -21,10 +21,10 @@ semantically-close aspect categories.
 + numpy 1.19.5
 ```
 
-### Download embedding
-please download the glove.6B.50d embedding([Link](https://drive.google.com/file/d/1vCm_X2vrSSwLICwmm4NW2-dXfNtV8TFg/view?usp=sharing)) and put it into word_embedding folder
+### Download word embedding
+please download the glove.6B.50d embedding ([Link](https://drive.google.com/file/d/1vCm_X2vrSSwLICwmm4NW2-dXfNtV8TFg/view?usp=sharing)) and put it into word_embedding folder
 
-### Select Model | Dataset | meta-task config
+### Model configuration
 
 - you can choose one or multiple methods at one time in the model_list
 ```bash
