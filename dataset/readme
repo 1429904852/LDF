@@ -1,0 +1,10 @@
+Three datasets have the same class separation.
+
+The format of each json file is:
+[
+    aspect category 1: [ instances ],
+    aspect category 2: [ instances ],
+    ...
+]
+
+Each instance is composed of the sentence token list and all aspects in this sentence.
