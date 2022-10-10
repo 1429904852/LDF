@@ -13,18 +13,20 @@ semantically-close aspect categories.
 ## Setup
 
 ### Requirements
+```bash
 + python 3.7
 + tensorflow 2.4.0
 + keras 2.4.3
 + sklearn 0.0
 + numpy 1.19.5
+```
 
 ### Download embedding
-please download the glove.6B.50d embedding and put it into word_embedding folder
+please download the glove.6B.50d.json embedding and put it into word_embedding folder
 
 ### Select Model | Dataset | meta-task config
 
-#### you can choose one or multiple methods at one time in the model_list
+- you can choose one or multiple methods at one time in the model_list
 ```bash
 e.g., model_list = ['AWATT_LCL', 'LDF_AWATT']
 
@@ -41,12 +43,12 @@ e.g., model_list = ['AWATT_LCL', 'LDF_AWATT']
 # 'LDF-HATT'        LDF-HATT
 ```
 
-#### you can choose one or multiple datasets at one time in the dataset_list
+- you can choose one or multiple datasets at one time in the dataset_list
 ```bash
 e.g., dataset_list = ['FewAsp', 'FewAsp(single)', 'FewAsp(multi)']
 ```
 
-#### you can choose one or multiple configs at one time in the config_list
+- you can choose one or multiple configs at one time in the config_list
 ```bash
 e.g., config_list = [[2, 5, 5], [1, 5, 10], [1, 10, 5], [1, 10, 10]]
 
@@ -58,16 +60,16 @@ e.g., config_list = [[2, 5, 5], [1, 5, 10], [1, 10, 5], [1, 10, 10]]
 
 ## Usage
 
-You can use the folowing command to train and test LDF on the FS-ACD task:
+- You can use the folowing command to train and test LDF on the FS-ACD task:
 
 ```bash
 python train_and_test.py
 ```
 
-The final results can be saved in the excel file you specified:
+- The final results can be saved in the excel file you specified:
 
 ```bash
-e.g., pd.DataFrame(result_list).to_excel("/data1/zhaof/LDF_2/" + 'result.xlsx')
+e.g., pd.DataFrame(result_list).to_excel("/data1/zhaof/LDF/" + 'result.xlsx')
 
 ```
 
