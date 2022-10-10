@@ -22,13 +22,13 @@ semantically-close aspect categories.
 ```
 
 ### Download embedding
-please download the glove.6B.50d.json embedding and put it into word_embedding folder
+please download the glove.6B.50d embedding([Link](https://drive.google.com/file/d/1vCm_X2vrSSwLICwmm4NW2-dXfNtV8TFg/view?usp=sharing)) and put it into word_embedding folder
 
 ### Select Model | Dataset | meta-task config
 
 - you can choose one or multiple methods at one time in the model_list
 ```bash
-e.g., model_list = ['AWATT_LCL', 'LDF_AWATT']
+e.g., model_list = [None, 'AWATT+LAS', 'LDF_AWATT']
 
 # code:             corresponding model:
 #  None             the original AWATT model
