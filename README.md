@@ -1,6 +1,6 @@
 # LDF
 
-Code and data for "Label-Driven Denoising Framework for Multi-Label Few-Shot Aspect Category Detection" (Findings of EMNLP 2022)
+Code and data for "[Label-Driven Denoising Framework for Multi-Label Few-Shot Aspect Category Detection](https://arxiv.org/pdf/2210.04220.pdf)" (Findings of EMNLP 2022)
 
 ## Overview
 
