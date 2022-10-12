@@ -69,7 +69,7 @@ python train_and_test.py
 - The final results can be saved in the excel file you specified:
 
 ```bash
-e.g., pd.DataFrame(result_list).to_excel("/data1/zhaof/LDF/" + 'result.xlsx')
+e.g., pd.DataFrame(result_list).to_excel('result.xlsx')
 ```
 
 ## Implementation details
