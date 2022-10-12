@@ -30,7 +30,6 @@ class LabelCL(Layer):  # B, N, K, 1, conv dim---prototype raws
         class_norm = tf.math.reduce_euclidean_norm(class_name, axis=-1, keepdims=True)
         class_name = class_name / class_norm  # B, N, word_embedding_dim
         class_cos_weight = tf.matmul(class_name, class_name, transpose_b=True)  # B, N, N
-        # class_cos_weight = class_cos_weight * tf.expand_dims(tf.eye(self.N), axis=0)
         class_cos_weight = tf.tile(tf.expand_dims(class_cos_weight, axis=-1), multiples=[1, 1, 1, self.K])
         cos_weight_list = tf.split(value=class_cos_weight, num_or_size_splits=self.N, axis=1)
         # (B, 1, N, K) x N
