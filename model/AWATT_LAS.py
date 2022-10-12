@@ -25,10 +25,7 @@ def make_model(N, K, Q, Em, max_len, word_embedding_dim=50, conv_dim=50, kernel_
     dot_product = tf.reduce_sum(class_name * s_input_processed, axis=-1)  # B, N, K, max len
     
     l2_norm = tf.math.reduce_euclidean_norm(class_name, axis=-1) * tf.math.reduce_euclidean_norm(s_input_processed, axis=-1)
-    # print(l2_norm.shape)
     cos_similarity = dot_product / l2_norm
-    # print(cos_similarity.shape)
-    # cos_similarity = cos_similarity * s_mask  # B, N, K, max len
 
     s_sentence = s_sentence * tf.tile(tf.expand_dims(s_mask, axis=-1), multiples=[1, 1, 1, 1, conv_dim])
     
