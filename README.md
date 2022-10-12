@@ -77,7 +77,7 @@ e.g., pd.DataFrame(result_list).to_excel('result.xlsx')
 
 <div align=center><img src="figs/eq10.png" width=75%/></div>
 
-- For the numeric results in the experiments, we take 5 runs covering seeds [5, 10, 15, 20, 25]. Different GPUs and versions of Keras/TensorFlow might give different results. Feel free to use our code, re-implement, and re-run the experiments!
+- For the numeric results in the experiments, we take 5 runs covering seeds [5, 10, 15, 20, 25]. **Different GPUs and versions of Keras/TensorFlow might give different results. Feel free to use our code, re-implement, and re-run the experiments!**
 
 - For the implementation of model [[AWATT](https://aclanthology.org/2021.acl-long.495/)] whose code is not available when we are working on **LDF**, in order to achieve the reported results, our implementation slightly differs from what is described in [[paper](https://aclanthology.org/2021.acl-long.495/)].
 
