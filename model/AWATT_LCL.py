@@ -36,8 +36,6 @@ class LabelCL(Layer):  # B, N, K, 1, conv dim---prototype raws
 
         proto_rep_list = tf.split(value=proto_rep_all_classes, num_or_size_splits=self.N, axis=1)
         # tf.split returns a list, every element now is of shape: B, 1, K, conv_dim, element num: N
-        # proto_rep_all_classes = tf.concat(proto_rep_list, axis=2)  # B, 1, N*K, conv_dim
-        # proto_rep_all_classes = tf.squeeze(proto_rep_all_classes, axis=1)  # B, N*K, conv_dim
         proto_rep_all_classes = tf.reshape(proto_rep_all_classes, shape=(-1, self.N * self.K, self.conv_dim))
         cl_loss = 0.0
         for i in range(self.N):
