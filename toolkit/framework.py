@@ -176,8 +176,6 @@ class Framework(object):
 
             # print('step: {}----------metrics are : {}'.format(step, metrics_dict))
             loss_train += metrics_dict[list(metrics_dict.keys())[-1]]
-            # TODO: might need to check whether "list(metrics_dict.keys())[-1]" corresponds to the "loss" term
-            #  based on the above commented "print", this might be right ---Yuchen Shen
         loss_train /= int(tasks / self.B)
         print('training loss in this epoch {}'.format(loss_train))
         return loss_train
