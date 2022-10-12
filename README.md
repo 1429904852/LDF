@@ -22,13 +22,13 @@ semantically-close aspect categories.
 ```
 
 ### Download word embedding
-please download the glove.6B.50d embedding ([Link](https://drive.google.com/file/d/1vCm_X2vrSSwLICwmm4NW2-dXfNtV8TFg/view?usp=sharing)) and put it into word_embedding folder
+please download the glove.6B.50d embedding in JSON format: [[Link](https://drive.google.com/file/d/1vCm_X2vrSSwLICwmm4NW2-dXfNtV8TFg/view?usp=sharing)], or in txt format: [[StanfordNLP](https://github.com/stanfordnlp/GloVe)] and put it under word_embedding folder
 
 ### Model configuration
 
 - you can choose one or multiple methods at one time in the model_list
 ```bash
-e.g., model_list = [None, 'AWATT+LAS', 'LDF_AWATT']
+e.g., model_list = [None, 'AWATT_LAS', 'LDF_AWATT']
 
 # code:             corresponding model:
 #  None             the original AWATT model
@@ -60,7 +60,7 @@ e.g., config_list = [[2, 5, 5], [1, 5, 10], [1, 10, 5], [1, 10, 10]]
 
 ## Usage
 
-- You can use the folowing command to train and test LDF on the FS-ACD task:
+- You can use the following command to train and test LDF on the FS-ACD task:
 
 ```bash
 python train_and_test.py
@@ -70,12 +70,63 @@ python train_and_test.py
 
 ```bash
 e.g., pd.DataFrame(result_list).to_excel("/data1/zhaof/LDF/" + 'result.xlsx')
-
 ```
+
+## Implementation details
+- The implementation of Label-weighted Contrastive Loss follows the simplification below:
+
+<div align=center><img src="figs/eq10.png" width=75%/></div>
+
+- For the numeric results in the experiments, we take 5 runs covering seeds [5, 10, 15, 20, 25]. Different GPUs and versions of Keras/TensorFlow might give different results. Feel free to use our code, re-implement, and re-run the experiments!
+
+- For the implementation of model [[AWATT](https://aclanthology.org/2021.acl-long.495/)] whose code is not available when we are working on **LDF**, in order to achieve the reported results, our implementation slightly differs from what is described in [[paper](https://aclanthology.org/2021.acl-long.495/)].
+
+## Build your own model
+you can augment your own model with **LDF** by: 
+
+- Introduce *label text* into the Attention module to help focus on salient information that benefits classification; 
+
+- Add our Label-weighted Contrastive Loss.
 
 ## Citation
 
-If the code is used in your research, please cite our paper.
-
+If the code is used in your research, please cite the paper:
+```bash
+@misc{https://doi.org/10.48550/arxiv.2210.04220,
+  doi = {10.48550/ARXIV.2210.04220},
+  
+  url = {https://arxiv.org/abs/2210.04220},
+  
+  author = {Zhao, Fei and Shen, Yuchen and Wu, Zhen and Dai, Xinyu},
+  
+  title = {Label-Driven Denoising Framework for Multi-Label Few-Shot Aspect Category Detection},
+  
+  publisher = {arXiv},
+  
+  year = {2022}
+}
+```
+If the data is used in your research, please cite the paper:
+```bash
+@inproceedings{hu-etal-2021-multi-label,
+    title = "Multi-Label Few-Shot Learning for Aspect Category Detection",
+    author = "Hu, Mengting  and
+      Zhao, Shiwan  and
+      Guo, Honglei  and
+      Xue, Chao  and
+      Gao, Hang  and
+      Gao, Tiegang  and
+      Cheng, Renhong  and
+      Su, Zhong",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.495",
+    doi = "10.18653/v1/2021.acl-long.495",
+    pages = "6330--6340",
+}
+```
 
 
