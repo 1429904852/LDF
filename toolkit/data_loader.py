@@ -71,7 +71,6 @@ class JSONFileDataLoader(object):
         for i in range(len(JSON_list)):
             word = list(JSON_list[i].values())[0]
             vec = list(JSON_list[i].values())[1]
-            # TODO, what's the key of each element in JSON_list here? ---Yuchen Shen
             word_2_index[word] = i
             word_2_vec.append(vec)
         return word_2_index, word_2_vec, len(JSON_list)
@@ -98,7 +97,6 @@ class JSONFileDataLoader(object):
         return word_2_index, word_2_vec, len(lines)
 
     def make_index_2_word(self):
-        # TODO: this might be used in the visualization as well --- Yuchen Shen
         index_2_word = dict(zip(self.word_2_index.values(), self.word_2_index.keys()))
         index_2_word[self.unk_index] = 'unk'
         index_2_word[self.padding_index] = 'padding'
