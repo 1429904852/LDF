@@ -92,17 +92,6 @@ def make_model(N, K, Q, Em, max_len, alpha=0.1, temp=0.1, word_embedding_dim=50,
                         kernel_initializer=keras.initializers.RandomNormal(stddev=0.1),
                         bias_initializer=keras.initializers.RandomNormal(stddev=0.1))(s_input)
 
-    class_name = tf.reduce_mean(class_input, axis=-2)  # B, N, word_embedding_dim
-    class_name = tf.expand_dims(tf.expand_dims(class_name, axis=-2), axis=-2)  # B, N, 1, 1, word_embedding_dim
-    class_name = tf.tile(class_name, multiples=[1, 1, K, max_len, 1])  # B, N, K, max len, word_embedding_dim
-    s_input_processed = tf.where(condition=tf.cast(tf.tile(tf.expand_dims(s_mask, axis=-1),
-                                                           multiples=[1, 1, 1, 1, word_embedding_dim]), dtype=bool),
-                                 x=s_input, y=tf.constant(value=1.0, shape=(1, N, K, max_len, word_embedding_dim)))
-    dot_product = tf.reduce_sum(class_name * s_input_processed, axis=-1)  # B, N, K, max len
-    l2_norm = tf.math.reduce_euclidean_norm(class_name, axis=-1) * tf.math.reduce_euclidean_norm(s_input_processed, axis=-1)
-    # print(l2_norm.shape)
-    cos_similarity = dot_product / l2_norm
-
     s_sentence = s_sentence * tf.tile(tf.expand_dims(s_mask, axis=-1), multiples=[1, 1, 1, 1, conv_dim])
     
     q_sentence = Conv1D(filters=conv_dim, kernel_size=kernel_size, padding='same',
