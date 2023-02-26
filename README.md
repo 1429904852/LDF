@@ -92,11 +92,19 @@ you can augment your own model with **LDF** by:
 
 If the code is used in your research, please cite the paper:
 ```bash
-@article{zhao2022label,
-    title={Label-Driven Denoising Framework for Multi-Label Few-Shot Aspect Category Detection},
-    author={Zhao, Fei and Shen, Yuchen and Wu, Zhen and Dai, Xinyu},
-    journal={arXiv preprint arXiv:2210.04220},
-    year={2022}
+@inproceedings{zhao-etal-2022-label,
+    title = "Label-Driven Denoising Framework for Multi-Label Few-Shot Aspect Category Detection",
+    author = "Zhao, Fei  and
+      Shen, Yuchen  and
+      Wu, Zhen  and
+      Dai, Xinyu",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2022",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.findings-emnlp.177",
+    pages = "2390--2402"
 }
 ```
 If the data is used in your research, please cite the paper:
